@@ -56,6 +56,25 @@ public class Q1 {
         return (chars.size()==str.length());
     }
 
+    /**
+     * Brut Force method
+     */
+
+    public boolean brutImpl(String str){
+        boolean flag=true;
+        for(int i=0; i<str.length();i++){
+            for (int j=0;j<str.length();j++){
+                if(i!=j&&str.charAt(i)==str.charAt(j)){
+                    flag=false;
+                    break;
+                }
+            }
+            if(!flag){
+                break;
+            }
+        }
+        return flag;
+    }
 
    @Test
     public void testUniqueCharsHashMap(){
@@ -80,6 +99,18 @@ public class Q1 {
         assertTrue(q1.hashMapImpl(uniQue1));
         assertTrue(q1.hashMapImpl(uniQue2));
 
+    }
+
+    @Test
+    public void testUniqueCharsBrutForce(){
+        Q1 q1 = new Q1();
+        String noUnique = "tttwwww";
+        String uniQue1 ="Test123";
+        String uniQue2 ="est123";
+
+        assertFalse(q1.brutImpl(noUnique));
+        assertTrue(q1.brutImpl(uniQue1));
+        assertTrue(q1.brutImpl(uniQue2));
     }
 
 }
