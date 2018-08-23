@@ -15,10 +15,6 @@ import static org.junit.Assert.assertTrue;
  * Find unique characters in String
  */
 public class Q1 {
-
-    public static void main(String[] args) {
-
-    }
     /**
      * Implemention using HashMap
      * @param str string to test
@@ -59,7 +55,6 @@ public class Q1 {
     /**
      * Brut Force method
      */
-
     public boolean brutImpl(String str){
         boolean flag=true;
         for(int i=0; i<str.length();i++){
@@ -76,7 +71,24 @@ public class Q1 {
         return flag;
     }
 
-   @Test
+    /**
+     * Char Array method
+     */
+    public boolean charArrImpl(String str){
+       boolean flag =true;
+       int[] strArr = new int[256];
+
+       for (int i=0;i<str.length();i++){
+            strArr[str.charAt(i)]++;
+            if(strArr[str.charAt(i)]>1){
+                flag=false;
+                break;
+            }
+       }
+       return flag;
+    }
+
+    @Test
     public void testUniqueCharsHashMap(){
         Q1 q1 = new Q1();
         String noUnique = "tttwwww";
@@ -89,7 +101,7 @@ public class Q1 {
     }
 
     @Test
-    public  void testUniqueCharsSet(){
+    public void testUniqueCharsSet(){
         Q1 q1 = new Q1();
         String noUnique = "tttwwww";
         String uniQue1 ="Test123";
@@ -112,5 +124,19 @@ public class Q1 {
         assertTrue(q1.brutImpl(uniQue1));
         assertTrue(q1.brutImpl(uniQue2));
     }
+
+    @Test
+    public void testUniqueCharsArrImpl(){
+        Q1 q1 = new Q1();
+        String noUnique = "tttwwww";
+        String uniQue1 ="Test123";
+        String uniQue2 ="est123";
+
+        assertFalse(q1.charArrImpl(noUnique));
+        assertTrue(q1.charArrImpl(uniQue1));
+        assertTrue(q1.charArrImpl(uniQue2));
+
+    }
+
 
 }
