@@ -45,16 +45,14 @@ public class Q2 {
         String newStr =str.substring(0,str.length()-1);
         int start=0;
         int end=newStr.length()-1;
-        int count=newStr.length()/2;
         char[] charStr = newStr.toCharArray();
         char temp;
-        while(count!=0){
+        while(start<=end){
             temp=charStr[start];
             charStr[start]=charStr[end];
             charStr[end]=temp;
             start++;
             end--;
-            count--;
         }
         return String.valueOf(charStr);
     }
