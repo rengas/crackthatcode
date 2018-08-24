@@ -12,7 +12,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 /**
- * Find unique characters in String
+ * Find String unique or not
  */
 public class Q1 {
     /**
