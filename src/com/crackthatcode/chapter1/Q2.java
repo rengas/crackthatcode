@@ -38,18 +38,43 @@ public class Q2 {
         return newStr;
     }
 
+    /**
+     * Convert String to chararray and swap at each step
+     */
+    public static String swapCharImpl(String str){
+        String newStr =str.substring(0,str.length()-1);
+        int start=0;
+        int end=newStr.length()-1;
+        int count=newStr.length()/2;
+        char[] charStr = newStr.toCharArray();
+        char temp;
+        while(count!=0){
+            temp=charStr[start];
+            charStr[start]=charStr[end];
+            charStr[end]=temp;
+            start++;
+            end--;
+            count--;
+        }
+        return String.valueOf(charStr);
+    }
+
     @Test
     public void testreverseStringArr(){
-        Q2 q2 = new Q2();
         String str = "mystring\n";
-        assertEquals("gnirtsym",q2.reverseStringArrImpl(str));
+        assertEquals("gnirtsym",reverseStringArrImpl(str));
     }
 
     @Test
     public void testreverseStringStack(){
-        Q2 q2 = new Q2();
         String str = "mystring\n";
-        assertEquals("gnirtsym",q2.reverseStringStackImpl(str));
+        assertEquals("gnirtsym",reverseStringStackImpl(str));
+    }
+
+    @Test
+    public void testSwapChar(){
+        String str = "mystrin\n";
+        assertEquals("nirtsym",swapCharImpl(str));
     }
 
 }
