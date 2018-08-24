@@ -20,6 +20,9 @@ public class Q1 {
      * @param str string to test
      * @return unique or not
      */
+    String noUnique = "tttwwww";
+    String uniQue1 ="Test123";
+    String uniQue2 ="est123";
     public  boolean hashMapImpl(String str){
         HashMap<String,Integer> charCount = new HashMap<>();
 
@@ -90,51 +93,31 @@ public class Q1 {
 
     @Test
     public void testUniqueCharsHashMap(){
-        Q1 q1 = new Q1();
-        String noUnique = "tttwwww";
-        String uniQue1 ="Test123";
-        String uniQue2 ="est123";
-        assertFalse(q1.hashMapImpl(noUnique));
-        assertTrue(q1.hashMapImpl(uniQue1));
-        assertTrue(q1.hashMapImpl(uniQue2));
-
+        assertFalse(hashMapImpl(noUnique));
+        assertTrue(hashMapImpl(uniQue1));
+        assertTrue(hashMapImpl(uniQue2));
     }
 
     @Test
     public void testUniqueCharsSet(){
-        Q1 q1 = new Q1();
-        String noUnique = "tttwwww";
-        String uniQue1 ="Test123";
-        String uniQue2 ="est123";
-
-        assertFalse(q1.setImpl(noUnique));
-        assertTrue(q1.hashMapImpl(uniQue1));
-        assertTrue(q1.hashMapImpl(uniQue2));
+        assertFalse(setImpl(noUnique));
+        assertTrue(setImpl(uniQue1));
+        assertTrue(setImpl(uniQue2));
 
     }
 
     @Test
     public void testUniqueCharsBrutForce(){
-        Q1 q1 = new Q1();
-        String noUnique = "tttwwww";
-        String uniQue1 ="Test123";
-        String uniQue2 ="est123";
-
-        assertFalse(q1.brutImpl(noUnique));
-        assertTrue(q1.brutImpl(uniQue1));
-        assertTrue(q1.brutImpl(uniQue2));
+        assertFalse(brutImpl(noUnique));
+        assertTrue(brutImpl(uniQue1));
+        assertTrue(brutImpl(uniQue2));
     }
 
     @Test
     public void testUniqueCharsArrImpl(){
-        Q1 q1 = new Q1();
-        String noUnique = "tttwwww";
-        String uniQue1 ="Test123";
-        String uniQue2 ="est123";
-
-        assertFalse(q1.charArrImpl(noUnique));
-        assertTrue(q1.charArrImpl(uniQue1));
-        assertTrue(q1.charArrImpl(uniQue2));
+        assertFalse(charArrImpl(noUnique));
+        assertTrue(charArrImpl(uniQue1));
+        assertTrue(charArrImpl(uniQue2));
 
     }
 
